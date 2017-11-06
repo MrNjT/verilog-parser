@@ -94,7 +94,8 @@ set(PARSER_LIB_SRC ${BINARY_DIR}/${FLEX_OUTPUT}
                    ${SOURCE_DIR}/verilog_preprocessor.c
 )
 
-add_library(${LIBRARY_NAME} ${PARSER_LIB_SRC})
+add_library(${LIBRARY_NAME} STATIC ${PARSER_LIB_SRC})
+set_property(TARGET ${LIBRARY_NAME} PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_include_directories(${LIBRARY_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 set(CMAKE_C_OUTPUT_EXTENSION_REPLACE 1)
